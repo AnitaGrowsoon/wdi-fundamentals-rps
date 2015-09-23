@@ -1,8 +1,3 @@
-////////////////////////////////////////////////
-/*   Provided Code - Please Don't Edit   */
-////////////////////////////////////////////////
-'use strict';
-
 function getInput() {
     console.log("Please choose either 'rock', 'dynamite', or 'scissors'.")
     return prompt();
@@ -17,31 +12,18 @@ function randomPlay() {
         return "scissors";
     }
 }
-////////////////////////////////////////////////
-/*           Write Your Code Below            */
-////////////////////////////////////////////////
 
 function getPlayerMove(move) {
-    // Write an expression that operates on a variable called `move`
-    // If a `move` has a value, your expression should evaluate to that value.
-    // However, if `move` is not specified / is null, your expression should equal `getInput()`.
     return playerMove = move || getInput();
 }
 
 function getComputerMove(move) {
-    // Write an expression that operates on a variable called `move`
-    // If a `move` has a value, your expression should evaluate to that value.
-    // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
     return computerMove = move || randomPlay();
 }
 
 function getWinner(playerMove,computerMove) {
     var playerMove = getPlayerMove();
     var computerMove = getComputerMove();
-    var winner;
-    // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
-    // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
-    // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     if (playerMove === 'quit') {
         return "quit";
     } else if (playerMove == computerMove) {
@@ -66,6 +48,7 @@ function getWinner(playerMove,computerMove) {
                 } else if (computerMove === 'dynamite') {
                     winner = 'player';
                 } break;
+                
             default : return 'you entered an incorrect answer. try again';
         }
         
@@ -76,7 +59,7 @@ function getWinner(playerMove,computerMove) {
 }
 
 function playToFive() {
-    console.log("Let's play Rock, Dynamite with a cuttable wick, Scissors");
+    console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
@@ -84,7 +67,7 @@ function playToFive() {
         winner = getWinner();
         if (winner === 'player') {
             playerWins += 1;
-            console.log(playerMove + " beats " + computerMove + "." + '\n' + "Now the score is :" + playerWins + " : " + computerWins + "." + '\n');    
+            console.log(playerMove + " beats " + computerMove + "." + '\n' + "Now the score is :" + playerWins + " : " + computerWins + "." + '\n');
             console.log("To quit, type 'quit'." + '\n');
         } else if (winner === 'computer') {
             computerWins += 1;
@@ -93,18 +76,17 @@ function playToFive() {
         } else if (winner === 'tie') {
             console.log("If you're not first, you're last. Rematch?");
             console.log("To quit, type 'quit'." + '\n');
+        } else if (winner === 'quit') {
+            console.log("player chose: " + winner + ".");
+            return "Fine. Quitter.";
         } else {
             console.log("Did you enter 'paper'? Tsk. Tsk.");
             console.log("Make sure you enter 'rock', 'dynamite', or 'scissors'.")
             console.log("To quit, type 'quit'." + '\n');
         }
-}   console.log("There's only room for one of us in this town.");
+} console.log("There's only room for one of us in this town.");
     return [playerWins, computerWins];
 }
-
-
-// If you are interested in an additional challenge, try writing another function called playTo(x) that allows us to play Rock Paper Scissors until either the player or the computer has won x times. Feel free to steal liberally from playToFive().
-//added dialogs. lol
 
 function playToX(x) {
     console.log("Let's play Rock, Paper, Scissors");
@@ -174,3 +156,6 @@ function playToX(x) {
         }
     }
 }
+
+
+playToX(10);
