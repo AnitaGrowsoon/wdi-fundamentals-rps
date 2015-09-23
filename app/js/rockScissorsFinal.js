@@ -1,3 +1,4 @@
+
 function getInput() {
     console.log("Please choose either 'rock', 'dynamite', or 'scissors'.")
     return prompt();
@@ -24,7 +25,9 @@ function getComputerMove(move) {
 function getWinner(playerMove,computerMove) {
     var playerMove = getPlayerMove();
     var computerMove = getComputerMove();
+    var winner;
     if (playerMove === 'quit') {
+        winner = 'quit';
         return "quit";
     } else if (playerMove == computerMove) {
         winner = 'tie';
@@ -37,7 +40,7 @@ function getWinner(playerMove,computerMove) {
                     winner = 'player';
                 } break;
             case 'dynamite':
-                if (computerMove === 'dynamite') {
+                if (computerMove === 'scissors') {
                     winner = 'computer';
                 } else if (computerMove === 'rock') {
                     winner = 'player';
@@ -48,7 +51,6 @@ function getWinner(playerMove,computerMove) {
                 } else if (computerMove === 'dynamite') {
                     winner = 'player';
                 } break;
-                
             default : return 'you entered an incorrect answer. try again';
         }
         
@@ -59,15 +61,17 @@ function getWinner(playerMove,computerMove) {
 }
 
 function playToFive() {
-    console.log("Let's play Rock, Paper, Scissors");
+    console.log("Let's play Rock, Dynamite with a cuttable wick, Scissors");
     var playerWins = 0;
     var computerWins = 0;
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
     while(playerWins < 5 && computerWins < 5) {
         winner = getWinner();
-        if (winner === 'player') {
+        if (winner === 'quit') {
+            return "Fine. Quitter."
+        } else if (winner === 'player') {
             playerWins += 1;
-            console.log(playerMove + " beats " + computerMove + "." + '\n' + "Now the score is :" + playerWins + " : " + computerWins + "." + '\n');
+            console.log(playerMove + " beats " + computerMove + "." + '\n' + "Now the score is :" + playerWins + " : " + computerWins + "." + '\n');    
             console.log("To quit, type 'quit'." + '\n');
         } else if (winner === 'computer') {
             computerWins += 1;
@@ -76,17 +80,16 @@ function playToFive() {
         } else if (winner === 'tie') {
             console.log("If you're not first, you're last. Rematch?");
             console.log("To quit, type 'quit'." + '\n');
-        } else if (winner === 'quit') {
-            console.log("player chose: " + winner + ".");
-            return "Fine. Quitter.";
         } else {
             console.log("Did you enter 'paper'? Tsk. Tsk.");
             console.log("Make sure you enter 'rock', 'dynamite', or 'scissors'.")
             console.log("To quit, type 'quit'." + '\n');
         }
-} console.log("There's only room for one of us in this town.");
+}   console.log("There's only room for one of us in this town.");
     return [playerWins, computerWins];
 }
+
+
 
 function playToX(x) {
     console.log("Let's play Rock, Paper, Scissors");
@@ -96,7 +99,9 @@ function playToX(x) {
     var x;
     while(playerWins < (x - 1) && computerWins < (x - 1) ){
         winner = getWinner();
-        if (winner === 'player') {
+        if (winner === 'quit') {
+            return "Fine. Quitter."
+        } else if (winner === 'player') {
             playerWins += 1;
             console.log('...');
             console.log("You win this time, punk. ");
@@ -156,6 +161,3 @@ function playToX(x) {
         }
     }
 }
-
-
-playToX(10);

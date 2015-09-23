@@ -1,7 +1,3 @@
-////////////////////////////////////////////////
-/*   Provided Code - Please Don't Edit   */
-////////////////////////////////////////////////
-'use strict';
 
 function getInput() {
     console.log("Please choose either 'rock', 'dynamite', or 'scissors'.")
@@ -17,21 +13,12 @@ function randomPlay() {
         return "scissors";
     }
 }
-////////////////////////////////////////////////
-/*           Write Your Code Below            */
-////////////////////////////////////////////////
 
 function getPlayerMove(move) {
-    // Write an expression that operates on a variable called `move`
-    // If a `move` has a value, your expression should evaluate to that value.
-    // However, if `move` is not specified / is null, your expression should equal `getInput()`.
     return playerMove = move || getInput();
 }
 
 function getComputerMove(move) {
-    // Write an expression that operates on a variable called `move`
-    // If a `move` has a value, your expression should evaluate to that value.
-    // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
     return computerMove = move || randomPlay();
 }
 
@@ -39,10 +26,8 @@ function getWinner(playerMove,computerMove) {
     var playerMove = getPlayerMove();
     var computerMove = getComputerMove();
     var winner;
-    // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
-    // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
-    // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     if (playerMove === 'quit') {
+        winner = 'quit';
         return "quit";
     } else if (playerMove == computerMove) {
         winner = 'tie';
@@ -55,7 +40,7 @@ function getWinner(playerMove,computerMove) {
                     winner = 'player';
                 } break;
             case 'dynamite':
-                if (computerMove === 'dynamite') {
+                if (computerMove === 'scissors') {
                     winner = 'computer';
                 } else if (computerMove === 'rock') {
                     winner = 'player';
@@ -82,7 +67,9 @@ function playToFive() {
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
     while(playerWins < 5 && computerWins < 5) {
         winner = getWinner();
-        if (winner === 'player') {
+        if (winner === 'quit') {
+            return "Fine. Quitter."
+        } else if (winner === 'player') {
             playerWins += 1;
             console.log(playerMove + " beats " + computerMove + "." + '\n' + "Now the score is :" + playerWins + " : " + computerWins + "." + '\n');    
             console.log("To quit, type 'quit'." + '\n');
@@ -103,8 +90,6 @@ function playToFive() {
 }
 
 
-// If you are interested in an additional challenge, try writing another function called playTo(x) that allows us to play Rock Paper Scissors until either the player or the computer has won x times. Feel free to steal liberally from playToFive().
-//added dialogs. lol
 
 function playToX(x) {
     console.log("Let's play Rock, Paper, Scissors");
@@ -114,7 +99,9 @@ function playToX(x) {
     var x;
     while(playerWins < (x - 1) && computerWins < (x - 1) ){
         winner = getWinner();
-        if (winner === 'player') {
+        if (winner === 'quit') {
+            return "Fine. Quitter."
+        } else if (winner === 'player') {
             playerWins += 1;
             console.log('...');
             console.log("You win this time, punk. ");
