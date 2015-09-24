@@ -91,8 +91,8 @@ function playToFive() {
 
 
 
-function playToX(x) {
-    console.log("Let's play Rock, Paper, Scissors");
+function playTo(x) {
+    console.log("Let's play Rock, Dynamite with a cuttable wick, Scissors");
     var playerWins = 0;
     var computerWins = 0;
     var winner;
@@ -161,3 +161,5 @@ function playToX(x) {
         }
     }
 }
+
+playTo(3);
