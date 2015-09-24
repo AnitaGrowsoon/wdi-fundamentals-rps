@@ -61,7 +61,7 @@ function getWinner(playerMove,computerMove) {
 }
 
 function playToFive() {
-    console.log("Let's play Rock, Dynamite with a cuttable wick, Scissors");
+    console.log("Let's play Rock, Dynamite with a cuttable wick, Scissors" + '\n' + "To quit, type 'quit'.");
     var playerWins = 0;
     var computerWins = 0;
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
@@ -92,7 +92,7 @@ function playToFive() {
 
 
 function playTo(x) {
-    console.log("Let's play Rock, Dynamite with a cuttable wick, Scissors");
+    console.log("Let's play Rock, Dynamite with a cuttable wick, Scissors" + '\n' + "To quit, type 'quit'.");
     var playerWins = 0;
     var computerWins = 0;
     var winner;
